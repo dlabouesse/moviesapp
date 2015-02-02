@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Moviesapp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav>
+	<ul>
+		<% if !signed_in? %>
+			<li><%= link_to "Sign in", signin_path %></li>
+		<% else %>
+			<li>Signed in as <%= @current_user.name %></li>
+			<li><%= link_to "Sign out", signout_path %></li>
+		<% end %>
+	</ul>
+</nav>
+<nav>
+	<ul>
+		<li><%= link_to "Home page", root_path %></li>
+		<li><%= link_to "Movies news", movies_path %></li>
+	</ul>
+</nav>
+
+<div>
+<p>
+	<% flash.each do |key, value| %>
+		<%= key %> : <%= value %>
+	<% end %>
+</p>
+</div>
+
+<%= yield %>
+
+</body>
+</html>
