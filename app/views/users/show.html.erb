@@ -26,8 +26,13 @@
 </p>
 
 <p>
+  <b>Admin:</b>
+  <%= @user.admin %>
+</p>
+
+<p>
   <b>Photo:</b>
-  <%= @user.photo %>
+  <%= image_tag(@user.photo, :width => "200px") %>
 </p>
 
 <!--

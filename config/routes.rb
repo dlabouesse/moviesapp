@@ -1,4 +1,6 @@
 Moviesapp::Application.routes.draw do
+  resources :posts
+
   get "pages/home"
 
   get "pages/about"
@@ -6,7 +8,7 @@ Moviesapp::Application.routes.draw do
   get "sessions/new"
   get "sessions/create"
   get "sessions/destroy"
-  
+
   resources :sessions
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
@@ -16,7 +18,9 @@ Moviesapp::Application.routes.draw do
 
   resources :genres
 
-  resources :movies
+  resources :movies do
+      resources :posts
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
