@@ -1,4 +1,6 @@
 Moviesapp::Application.routes.draw do
+  get "shop/index"
+
   resources :posts
 
   get "pages/home"
